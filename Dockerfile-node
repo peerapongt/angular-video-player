@@ -1,0 +1,13 @@
+FROM node:12.14.0-alpine
+
+WORKDIR /angular-video-player
+
+COPY package*.json .
+
+RUN npm i
+
+COPY . .
+
+EXPOSE 4200
+
+CMD [ "npm", "start" ]
