@@ -18,13 +18,13 @@ jobs:
         run: pwd /angular-video-player
 
       - name: Copy package.json and package-lock.json
-        run: cp package*.json .
+        run: cp ./package*.json .
 
       - name: Install dependencies
         run: npm install
 
       - name: Copy all files
-        run: cp -r . .
+        run: cp -r ./. .
 
       - name: Expose port 4200
         run: echo "EXPOSE 4200" >> Dockerfile  # Assuming this is intended for a Dockerfile
