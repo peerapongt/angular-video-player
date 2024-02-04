@@ -12,11 +12,11 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '16' # Update to Node.js 16 or later
+          node-version: '12.14.0'
 
       - name: Set up working directory
-        run: mkdir -p angular-video-player
-        working-directory: angular-video-player
+        run: mkdir -p /angular-video-player
+        working-directory: /angular-video-player
 
       - name: Copy package.json and package-lock.json
         run: cp /*.json .
