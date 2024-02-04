@@ -15,8 +15,7 @@ jobs:
           node-version: '12.14.0'
 
       - name: Set up working directory
-        run: mkdir -p /angular-video-player
-        working-directory: /angular-video-player
+        run: pwd /angular-video-player
 
       - name: Copy package.json and package-lock.json
         run: cp ../package*.json .
