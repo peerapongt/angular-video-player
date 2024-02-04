@@ -16,7 +16,7 @@ jobs:
 
       - name: Set up working directory
         run: mkdir -p angular-video-player
-        working-directory: angular-video-player
+        working-directory: /angular-video-player
 
       - name: Copy package.json and package-lock.json
         run: cp /*.json .
