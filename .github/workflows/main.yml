@@ -14,18 +14,18 @@ jobs:
         with:
           node-version: '12.14.0'
 
-      - name: Set up working directory
-        run: mkdir -p /angular-video-player
-        working-directory: /angular-video-player
+      # - name: Set up working directory
+      #   run: mkdir -p /angular-video-player
+      #   working-directory: /angular-video-player
 
-      - name: Copy package.json and package-lock.json
-        run: cp /*.json .
+      # - name: Copy package.json and package-lock.json
+      #   run: cp /package*.json .
 
       - name: Install dependencies
         run: npm install
 
-      - name: Copy all files
-        run: cp -r ../* .
+      # - name: Copy all files
+      #   run: cp -r ../* .
 
       - name: Expose port 4200
         run: echo "EXPOSE 4200" >> Dockerfile  # Assuming this is intended for a Dockerfile
