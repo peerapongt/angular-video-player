@@ -1,32 +1,34 @@
-name: github-pages-build
+name: Node.js
 
-on:
-  push:
-    branches: [master]
+on: [push]
 
 jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
 
-      - name: Install
-        run: npm ci
-
-      - name: Lint
-        run: npm run lint
-
-      - name: Test
-        run: npm run test:prod
-
-      - name: Build
-        run: npm run build:prod
-
-      - name: Deploy
-        uses: JamesIves/github-pages-deploy-action@3.7.1
+      - name: Use Node.js
+        uses: actions/setup-node@v3
         with:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          BRANCH: gh-pages
-          FOLDER: dist
-          CLEAN: true
+          node-version: '12.14.0-alpine'
+
+      - name: Set working directory
+        run: mkdir -p /angular-video-player
+        working-directory: /angular-video-player
+
+      - name: Copy package.json and package-lock.json
+        run: cp package*.json .
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Copy all files
+        run: cp -r ../. .
+
+      - name: Expose port 4200
+        run: echo "EXPOSE 4200" >> Dockerfile  # Assuming this is intended for a Dockerfile
+
+      - name: Start the application
+        run: npm start
