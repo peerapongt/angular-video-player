@@ -27,11 +27,11 @@ jobs:
       # - name: Copy all files
       #   run: cp -r ../* .
 
-      - name: Expose port 4200
-        run: echo "EXPOSE 4200" >> Dockerfile  # Assuming this is intended for a Dockerfile
+      # - name: Expose port 4200
+      #   run: echo "EXPOSE 4200" >> Dockerfile  # Assuming this is intended for a Dockerfile
 
-      - name: Start the application
-        run: npm start
+      # - name: Start the application
+      #   run: npm start
 
       - name: Build the application
-        run: npm build
+        run: npm run build
